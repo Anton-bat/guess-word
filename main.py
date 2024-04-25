@@ -17,11 +17,10 @@ while counter > 0:
     elif len(user_input) == 0:
         print("plese enter a suggestion")
 
-    elif user_input not in {letter for letter in given_word}:
-        print("No such letter in given word")
-        counter -= 1   
-
     elif len(user_input) == 1:
+        if user_input not in {letter for letter in given_word}:
+            print("No such letter in given word")
+            counter -= 1   
         if user_input in given_word:
             for k, v in enumerate(given_word):
                 if v == user_input:
@@ -30,10 +29,7 @@ while counter > 0:
             if "*" not in to_show:
                 print("You won")
                 break
-
-    else:
-        pass
-
+            
 if counter == 0:
     print("You lose")
 
